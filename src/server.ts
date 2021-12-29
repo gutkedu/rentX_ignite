@@ -2,8 +2,9 @@ import express = require('express');
 import swaggerUI from "swagger-ui-express";
 
 import swaggerFile from "./swagger.json"
-
 import { router } from './routes';
+
+import "./database";
 
 const app = express();
 
