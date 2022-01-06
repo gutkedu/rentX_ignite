@@ -10,6 +10,8 @@ COPY . .
 
 EXPOSE 3333 
 
+CMD [ "npm", "uninstall", "bcrypt" ]
+CMD [ "npm", "install", "bcrypt" ]
 CMD ["npm", "run", "dev"]
 
 

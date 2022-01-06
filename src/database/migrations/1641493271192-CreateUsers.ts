@@ -1,4 +1,4 @@
-import { query } from "express";
+
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class CreateUsers1641493271192 implements MigrationInterface {
@@ -46,8 +46,6 @@ export class CreateUsers1641493271192 implements MigrationInterface {
         ],
       })
     )
-
-
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
