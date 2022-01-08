@@ -8,6 +8,7 @@
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
   },
   "dependencies": {
+    "express-async-errors": "3.1.1",
     "jsonwebtoken": "^8.5.1",
     "bcryptjs": "^2.4.3",
     "csv-parse": "^5.0.3",
