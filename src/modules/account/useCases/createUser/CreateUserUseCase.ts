@@ -11,9 +11,7 @@ class CreateUserUseCase {
     @inject("UsersRepository")
     private usersRepository: IUsersRepository
   ) { }
-
-
-
+  
   async execute({
     name,
     email,
