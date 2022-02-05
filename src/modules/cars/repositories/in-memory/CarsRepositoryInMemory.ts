@@ -9,7 +9,7 @@ class CarsRepositoryInMemory implements ICarsRepository {
     category_id,
     daily_rate,
     description,
-    find_amount,
+    fine_amount,
     name,
     license_plate }: ICreateCarDTO): Promise<Car> {
     const car = new Car();
@@ -18,7 +18,7 @@ class CarsRepositoryInMemory implements ICarsRepository {
       category_id,
       daily_rate,
       description,
-      find_amount,
+      fine_amount,
       name,
       license_plate
     });
