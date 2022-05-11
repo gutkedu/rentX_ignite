@@ -1,4 +1,4 @@
-import { Category } from "../infra/typeorm/entities/Category"
+import { Category } from "../infra/typeorm/entities/Category";
 
 // DTO -> data transfer object
 interface ICreateCategoryDTO {

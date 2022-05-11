@@ -8,4 +8,4 @@ interface ICreateCarDTO {
   category_id: string;
 }
 
-export { ICreateCarDTO }
+export { ICreateCarDTO };

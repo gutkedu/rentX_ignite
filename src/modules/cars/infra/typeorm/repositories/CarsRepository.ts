@@ -34,14 +34,16 @@ class CarsRepository implements ICarsRepository {
 
   async findByLicencePlate(license_plate: string): Promise<Car> {
     const car = await this.repository.findOne({
-      license_plate
+      license_plate,
     });
     return car;
   }
 
-  async findAvailable(brand?: string,
+  async findAvailable(
+    brand?: string,
     category_id?: string,
-    name?: string): Promise<Car[]> {
+    name?: string
+  ): Promise<Car[]> {
     const carsQuery = await this.repository
       .createQueryBuilder("c")
       .where("available = :available", { available: true });
@@ -61,4 +63,4 @@ class CarsRepository implements ICarsRepository {
   }
 }
 
-export { CarsRepository }
+export { CarsRepository };

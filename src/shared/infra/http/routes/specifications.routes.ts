@@ -7,7 +7,8 @@ const specificationsRoutes = Router();
 
 const createSpecificationController = new CreateSpecificationController();
 
-specificationsRoutes.post("/",
+specificationsRoutes.post(
+  "/",
   ensureAuthenticated,
   ensureAdmin,
   createSpecificationController.handle

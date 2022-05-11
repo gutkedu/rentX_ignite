@@ -18,7 +18,7 @@ class CreateCarUseCase {
   constructor(
     @inject("CarsRepository")
     private carsRepository: ICarsRepository
-  ) { }
+  ) {}
 
   async execute({
     name,
@@ -27,8 +27,8 @@ class CreateCarUseCase {
     license_plate,
     fine_amount,
     brand,
-    category_id }: IRequest): Promise<Car> {
-
+    category_id,
+  }: IRequest): Promise<Car> {
     const carAlreadyExist = await this.carsRepository.findByLicencePlate(
       license_plate
     );
@@ -44,11 +44,11 @@ class CreateCarUseCase {
       license_plate,
       fine_amount,
       brand,
-      category_id
+      category_id,
     });
 
     return car;
   }
 }
 
-export { CreateCarUseCase }
+export { CreateCarUseCase };

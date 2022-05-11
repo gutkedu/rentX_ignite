@@ -21,9 +21,12 @@ export async function ensureAuthenticated(
   const [, token] = authHeader.split(" ");
 
   try {
-    const { sub: user_id } = verify(token, "be099fcd19a5a65037e9a1f594379027") as IPayload;
+    const { sub: user_id } = verify(
+      token,
+      "be099fcd19a5a65037e9a1f594379027"
+    ) as IPayload;
 
-    const usersRepository = new UsersRepository;
+    const usersRepository = new UsersRepository();
     const user = await usersRepository.findById(user_id);
 
     if (!user) {
@@ -32,11 +35,10 @@ export async function ensureAuthenticated(
 
     request.user = {
       id: user_id,
-    }
+    };
 
     next();
-
   } catch (error) {
-    throw new AppError("Invalid Token!", 401)
+    throw new AppError("Invalid Token!", 401);
   }
 }

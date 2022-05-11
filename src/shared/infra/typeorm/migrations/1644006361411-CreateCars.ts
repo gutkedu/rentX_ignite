@@ -1,7 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class CreateCars1644006361411 implements MigrationInterface {
-
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
@@ -10,47 +9,47 @@ export class CreateCars1644006361411 implements MigrationInterface {
           {
             name: "id",
             type: "uuid",
-            isPrimary: true
+            isPrimary: true,
           },
           {
             name: "name",
-            type: "varchar"
+            type: "varchar",
           },
           {
             name: "description",
-            type: "varchar"
+            type: "varchar",
           },
           {
             name: "daily_rate",
-            type: "numeric"
+            type: "numeric",
           },
           {
             name: "available",
             type: "boolean",
-            default: true
+            default: true,
           },
           {
             name: "license_plate",
-            type: "varchar"
+            type: "varchar",
           },
           {
             name: "fine_amount",
-            type: "numeric"
+            type: "numeric",
           },
           {
             name: "brand",
-            type: "varchar"
+            type: "varchar",
           },
           {
             name: "category_id",
             type: "uuid",
-            isNullable: true
+            isNullable: true,
           },
           {
             name: "created_at",
             type: "timestamp",
             default: "now()",
-          }
+          },
         ],
         foreignKeys: [
           {
@@ -59,9 +58,9 @@ export class CreateCars1644006361411 implements MigrationInterface {
             referencedColumnNames: ["id"],
             columnNames: ["category_id"],
             onDelete: "SET NULL",
-            onUpdate: "SET NULL"
-          }
-        ]
+            onUpdate: "SET NULL",
+          },
+        ],
       })
     );
   }
@@ -69,5 +68,4 @@ export class CreateCars1644006361411 implements MigrationInterface {
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropTable("cars");
   }
-
 }

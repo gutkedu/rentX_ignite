@@ -11,19 +11,18 @@ interface IRequest {
 
 interface IResponse {
   user: {
-    name: string,
-    email: string
-  },
+    name: string;
+    email: string;
+  };
   token: string;
 }
 
 @injectable()
 class AuthenticateUserUseCase {
-
   constructor(
-    @inject('UsersRepository')
+    @inject("UsersRepository")
     private userRepository: IUsersRepository
-  ) { }
+  ) {}
 
   async execute({ email, password }: IRequest): Promise<IResponse> {
     //Usuario existe
@@ -41,7 +40,7 @@ class AuthenticateUserUseCase {
     //Gerar json web token
     const token = sign({}, "be099fcd19a5a65037e9a1f594379027", {
       subject: user.id,
-      expiresIn: "1d"
+      expiresIn: "1d",
     });
 
     const tokenReturn: IResponse = {
@@ -49,11 +48,11 @@ class AuthenticateUserUseCase {
       user: {
         name: user.name,
         email: user.email,
-      }
-    }
+      },
+    };
 
     return tokenReturn;
   }
 }
 
-export { AuthenticateUserUseCase }
+export { AuthenticateUserUseCase };

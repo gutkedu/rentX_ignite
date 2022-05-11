@@ -38,7 +38,6 @@ class UsersRepository implements IUsersRepository {
     const user = await this.repository.findOne(id);
     return user;
   }
-
 }
 
-export { UsersRepository }
+export { UsersRepository };

@@ -10,11 +10,11 @@ class AuthenticateUserController {
 
     const token = await authenticateUserUseCase.execute({
       password,
-      email
+      email,
     });
 
-    return response.json(token)
+    return response.json(token);
   }
 }
 
-export { AuthenticateUserController }
+export { AuthenticateUserController };

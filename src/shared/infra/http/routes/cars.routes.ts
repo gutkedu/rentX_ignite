@@ -9,14 +9,13 @@ const carsRoutes = Router();
 const createCarController = new CreateCarController();
 const listAvailablesCarsController = new ListAvailablesCarsController();
 
-carsRoutes.post("/",
+carsRoutes.post(
+  "/",
   ensureAuthenticated,
   ensureAdmin,
   createCarController.handle
 );
 
-carsRoutes.get("/available",
-  listAvailablesCarsController.handle
-);
+carsRoutes.get("/available", listAvailablesCarsController.handle);
 
-export { carsRoutes }
+export { carsRoutes };

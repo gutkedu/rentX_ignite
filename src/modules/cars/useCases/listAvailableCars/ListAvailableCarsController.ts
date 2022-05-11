@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { ListAvailableCarsUseCase } from "./listAvailableCarsUseCase";
-
+import { ListAvailableCarsUseCase } from "./ListAvailableCarsUseCase";
 
 class ListAvailablesCarsController {
-
   async handle(request: Request, response: Response): Promise<Response> {
     const { brand, name, category_id } = request.query;
 
-    const listAvailableCarsUseCase = container.resolve(ListAvailableCarsUseCase);
+    const listAvailableCarsUseCase = container.resolve(
+      ListAvailableCarsUseCase
+    );
 
     const cars = await listAvailableCarsUseCase.execute({
       brand: brand as string,
@@ -20,4 +20,4 @@ class ListAvailablesCarsController {
   }
 }
 
-export { ListAvailablesCarsController }
+export { ListAvailablesCarsController };

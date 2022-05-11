@@ -1,7 +1,7 @@
 import { ICreateUserDTO } from "@modules/account/dtos/ICreateUserDTO";
 import { UsersRepositoryInMemory } from "@modules/account/repositories/in-memory/UsersRepositoryInMemory";
 import { CreateUserUseCase } from "../createUser/CreateUserUseCase";
-import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase"
+import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase";
 import { AppError } from "@shared/errors/AppError";
 
 let authenticateUserUseCase: AuthenticateUserUseCase;
@@ -11,7 +11,9 @@ let createUserUseCase: CreateUserUseCase;
 describe("Authenticate User", () => {
   beforeEach(() => {
     usersRepositoryInMemory = new UsersRepositoryInMemory();
-    authenticateUserUseCase = new AuthenticateUserUseCase(usersRepositoryInMemory);
+    authenticateUserUseCase = new AuthenticateUserUseCase(
+      usersRepositoryInMemory
+    );
     createUserUseCase = new CreateUserUseCase(usersRepositoryInMemory);
   });
 
@@ -26,7 +28,7 @@ describe("Authenticate User", () => {
 
     const result = await authenticateUserUseCase.execute({
       email: user.email,
-      password: user.password
+      password: user.password,
     });
 
     expect(result).toHaveProperty("token");
@@ -48,7 +50,7 @@ describe("Authenticate User", () => {
         email: "user@user.com",
         password: "1234",
         name: "User test error",
-      }
+      };
 
       await createUserUseCase.execute(user);
 
@@ -58,5 +60,4 @@ describe("Authenticate User", () => {
       });
     }).rejects.toBeInstanceOf(AppError);
   });
-
 });

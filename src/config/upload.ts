@@ -1,5 +1,5 @@
-import multer from "multer"
-import { resolve } from 'path';
+import multer from "multer";
+import { resolve } from "path";
 import crypto from "crypto";
 
 export default {
@@ -12,8 +12,8 @@ export default {
           const fileName = `${fileHash}-${file.originalname}`;
 
           return callback(null, fileName);
-        }
-      })
-    }
-  }
-}
+        },
+      }),
+    };
+  },
+};
