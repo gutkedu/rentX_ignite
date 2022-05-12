@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { container } from "tsyringe";
 import { ListAvailableCarsUseCase } from "./ListAvailableCarsUseCase";
 
-class ListAvailablesCarsController {
+class ListAvailableCarsController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { brand, name, category_id } = request.query;
 
@@ -20,4 +20,4 @@ class ListAvailablesCarsController {
   }
 }
 
-export { ListAvailablesCarsController };
+export { ListAvailableCarsController };
