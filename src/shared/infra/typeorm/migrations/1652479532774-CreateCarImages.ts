@@ -43,4 +43,3 @@ export class CreateCarImages1652479532774 implements MigrationInterface {
     await queryRunner.dropTable("cars_image");
   }
 }
-

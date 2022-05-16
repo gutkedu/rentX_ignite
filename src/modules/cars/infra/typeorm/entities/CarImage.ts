@@ -23,4 +23,3 @@ class CarImage {
 }
 
 export { CarImage };
-

@@ -54,4 +54,3 @@ describe("Create Car Specification", () => {
     expect(specificationsCars.specifications.length).toBe(1);
   });
 });
-

@@ -35,4 +35,3 @@ class CreateCarSpecificationUseCase {
 }
 
 export { CreateCarSpecificationUseCase };
-

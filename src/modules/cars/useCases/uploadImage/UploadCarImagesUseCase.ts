@@ -20,4 +20,3 @@ class UploadClassImagesUseCase {
 }
 
 export { UploadClassImagesUseCase };
-

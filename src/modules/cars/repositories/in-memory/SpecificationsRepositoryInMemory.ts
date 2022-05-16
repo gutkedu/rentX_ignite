@@ -33,4 +33,3 @@ class SpecificationsRepositoryInMemory implements ISpecificationsRepository {
 }
 
 export { SpecificationsRepositoryInMemory };
-

@@ -23,4 +23,3 @@ class UploadCarImagesController {
 }
 
 export { UploadCarImagesController };
-

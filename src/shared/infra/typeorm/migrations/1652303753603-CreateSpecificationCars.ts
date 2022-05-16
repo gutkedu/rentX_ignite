@@ -68,4 +68,3 @@ export class CreateSpecificationCars1652303753603
     await queryRunner.dropTable("specifications_car");
   }
 }
-
