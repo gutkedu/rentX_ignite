@@ -28,6 +28,9 @@ $ docker-compose up -d
 #O banco de dados postgres inicializara na porta 5432.
 # O servidor inciará na porta:3333 - acesse <http://localhost:3333>
 ```
+## Teste a API no Insomnia
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=RentX%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fgutkedu%2FRentX%2Fmaster%2F.insomnia%2Fexport.json)
 
 ## Requisitos do sistema
 
