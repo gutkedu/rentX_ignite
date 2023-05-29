@@ -1,138 +1,91 @@
+# RentX
 
-## 🚀 Tecnologias
+RentX is an online car rental api that provides a convenient way for users to rent vehicles. This repository contains the source code for the RentX application.
 
-- [Node.js](https://nodejs.org/en/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [TSyringe](https://github.com/microsoft/tsyringe)
-- [Postgres](https://www.postgresql.org/)
-- [TypeORM](https://typeorm.io/#/)
-- [Express](https://expressjs.com/)
-- [JsonWebToken](https://jwt.io/)
-- [BcryptJs](https://www.npmjs.com/package/bcryptjs)
-- [Multer](https://www.npmjs.com/package/multer)
-- [Jest](https://jestjs.io/)
-- [Supertest](https://www.npmjs.com/package/supertest)
-- [Docker](https://www.docker.com/)
+## Features
 
-## 🎲 Rodando o Back End
+- User registration and authentication
+- Car browsing and search
+- Car rental booking
+- User reviews and ratings
+- Secure payment processing
+- Admin panel for managing cars, bookings, and users
+- Advanced filtering and sorting options
 
-```bash
-# Clone este repositório
+## Technologies Used
 
-#Instalar as dependencias com yarn
-$ yarn install
+- Node.js
+- Express.js
+- TypeScript
+- PostgreSQL
+- TypeORM
+- JWT (JSON Web Tokens)
+- Docker
+- AWS S3
+- SendGrid
 
-#No docker, utilizar o comando
-$ docker-compose up -d
+## Getting Started
 
-#O banco de dados postgres inicializara na porta 5432.
-# O servidor inciará na porta:3333 - acesse <http://localhost:3333>
-```
-## Teste a API no Insomnia
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=RentX%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fgutkedu%2FRentX%2Fmaster%2F.insomnia%2Fexport.json)
+### Prerequisites
 
-## Requisitos do sistema
+- Node.js 
+- PostgreSQL 
+- Docker 
 
-### Cadastro de carro
+### Installation
 
-```bash
-**RF**
-Deve ser possível cadastrar um novo carro.
+1. Clone the repository:
 
-**RN**
-Não deve ser possível cadastrar um carro com uma placa já existente.
-O carro deve ser cadastrado como disponivel por padrão.
-O usuário responsavel pelo cadastro deve ser um usuário administrador.
-```
+   ```bash
+   git clone https://github.com/gutkedu/RentX.git
+   ```
 
-### Listagem de carros
+2. Install dependencies:
 
-```bash
-**RF**
-Deve ser possivel listar todos os carros disponíveis.
-Deve ser possível listar todos os carros disponíveis pelo nome da categoria.
-Deve ser possível listar todos os carros disponíveis pelo nome da marca.
-Deve ser possível listar todos os carros disponíveis pelo nome do carro.
+   ```bash
+   cd RentX
+   npm install
+   ```
 
-**RN**
-O usuário não precisa estar logado no sistema.
-```
+3. Set up environment variables:
 
-### Cadastro de especificação no carro
+   - Create a `.env` file based on the provided `.env.example` file.
+   - Update the necessary configuration variables in the `.env` file.
 
-```bash
-**RF**
-RF01. Deve ser possível cadastrar uma especificação para um carro.
+4. Start the PostgreSQL and Redis services using Docker:
 
-**RN**
-Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
-Não deve ser possível cadastrar uma especificação já existente para o mesmo carro.
-O usuário responsavel pelo cadastro deve ser um usuário administrador.
-```
+   ```bash
+   docker-compose up -d
+   ```
 
-### Cadastro de imagens do carro
+5. Run database migrations:
 
-```bash
-**RF**
-Deve ser possível cadastrar a imagem do carro.
+   ```bash
+   npm run typeorm migration:run
+   ```
 
-**RNF**
-Utilizar o multer para upload dos arquivos.
+6. Start the application:
 
-**RN**
-O usuário pode cadastrar mais de uma imagem para o mesmo carro.
-O usuário responsavel pelo cadastro deve ser um usuário administrador.
-```
+   ```bash
+   npm run dev
+   ```
 
-### Aluguel de carro
+   The application will be accessible at `http://localhost:3333`.
 
-```bash
-**RF**
-Deve ser possível cadastrar um aluguel.
+## Deployment
 
-**RN**
-O aluguel deve ter duração mínima de 24 horas.
-Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
-Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.
-O usuario deve estar logado na aplicação
-Ao realizar um aluguel, o status do carro devera ser alterado para indisponivel
+To deploy the application to a production environment, follow these steps:
 
-```
+1. Provision a server or hosting platform of your choice.
 
-### Devolução de um carro
+2. Set up the necessary infrastructure, including a PostgreSQL database and Redis instance.
 
-```bash
-**RF**
-Deve ser possivel realizar a devolução de um carro
+3. Update the environment variables on your production server with the appropriate values.
 
-**RN**
-Se o carro for devolvido com menos de 24 horas, deve ser cobrado diaria completa
-Ao realizar a devolução, o carro deverá ser liberado para outro aluguel
-Ao realizar a devolução, o usuario devera ser liberado para outro aluguel
-Ao realizar a devolução, deverá ser calculado o total do aluguel
-Caso o horario de devolução seja superior ao horário previsto de entrega, deverá ser cobrado
-multa proporcional aos dias de atraso
-Caso haja multa, deverá ser somado ao total do aluguel
-O usuario deve estar logado na aplicação
-```
+4. Build and package the application using a bundler or packaging tool.
 
-### Listagem de alugueis para usuario
+5. Deploy the packaged application to your production server.
 
-```bash
-**RF**
-Deve ser possivel realizar a busca de todos os alugueis para o usuario
-
-**RN**
-O usuario deve estar logado na aplicação
-```
-### Recuperar senha
-
-**RF**
-- Deve ser recuperar a senha para o usuário informando o e-mail.
-- O usuário deve receber um e-mail com o passo a passo para a recuperação da senha
-- O usuário deve conseguir inserir uma nova senha.
-
-**RN**
-- O usuario precisa informar uma nova senha
-- O link enviado para a recuperação deve expirar em 3 horas.
+6. Start the application process.
