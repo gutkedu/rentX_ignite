@@ -80,7 +80,7 @@ To deploy the application to a production environment, follow these steps:
 
 1. Provision a server or hosting platform of your choice.
 
-2. Set up the necessary infrastructure, including a PostgreSQL database and Redis instance.
+2. Set up the necessary infrastructure, including a PostgreSQL database.
 
 3. Update the environment variables on your production server with the appropriate values.
 
